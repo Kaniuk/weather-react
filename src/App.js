@@ -5,10 +5,12 @@ import {Forecast} from "./components/forecast/Forecast";
 const App = () => {
     return (
         <div>
-          <Forecast/>
-            {/*<a href="">Open-source code,</a>*/}
+            <Forecast/>
+            <div><a href="https://github.com/Kaniuk/weather-react">Open-source code,</a> by <a
+                href="https://www.linkedin.com/in/liudmyla-kaniuk-65b29b21b/">Liudmyla Kaniuk</a></div>
         </div>
     );
 };
+
 
 export default App;
