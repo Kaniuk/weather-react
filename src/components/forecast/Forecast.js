@@ -1,20 +1,23 @@
 import React, {useState} from "react";
-
-import "./Forecast.css";
 import axios from "axios";
+
+import CurrentDate from "../currentDate/CurrentDate";
+import "./Forecast.css";
 
 function Forecast({defaultCity}) {
     const [weatherData, setWeatherData] = useState({ready:false});
 
     function handleResponse(response) {
         setWeatherData({
+
+
             ready:true,
             temperature: Math.round(response.data.temperature.current),
             city: response.data.city,
             condition: response.data.condition.description,
             humidity: response.data.temperature.humidity,
             wind: response.data.wind.speed,
-            time: response.data.time,
+            time: new Date(response.data.time * 1000),
             icon: response.data.condition.icon_url
         });
 
@@ -41,7 +44,7 @@ function Forecast({defaultCity}) {
                     <div className="cityInfo col-7">
 
                         <div className="info">
-                            <div>Last updated: {weatherData.time}</div>
+                            <div>Last updated: <CurrentDate date={weatherData.time}/></div>
                             <div>{weatherData.condition}</div>
                             <div>Humidity: {weatherData.humidity}</div>
                             <div>Wind: {weatherData.wind}km/h</div>
