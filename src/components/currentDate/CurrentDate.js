@@ -12,4 +12,4 @@ const CurrentDate = ({date}) => {
     );
 };
 
-export default CurrentDate;
+export {CurrentDate};
